@@ -1,0 +1,16 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Recetas
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <a [routerLink]="['/recipes', recipe.id]" *ngFor="let recipe of recipes">
+      <recipe [recipe]="recipe"></recipe>
+    </a>
+  </div>
+</section>

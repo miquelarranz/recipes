@@ -1,0 +1,15 @@
+<article class="media recipe__panel">
+  <figure class="media-left">
+
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong> {{ recipe.name }}</strong>
+      </p>
+    </div>
+  </div>
+  <figure class="media-right">
+    <span *ngFor="let category of recipe.categories" class="tag is-link recipe__category">{{ category }}</span>
+  </figure>
+</article>

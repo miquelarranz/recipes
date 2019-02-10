@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+$root: '.recipe';
+
+#{$root} {
+    &__panel {
+        border: 1px solid $border-color;
+        border-radius: $super-small-size;
+        padding: $small-size;
+        margin-bottom: $medium-size;
+    }
+
+    &__category {
+        margin-left: $super-small-size;
+    }
+}
