@@ -24,11 +24,11 @@ export class RecipesRepository {
 			).valueChanges().subscribe(recipe => {
 				resolve(
 					new Recipe(
-						recipes[0]['id'],
-						recipes[0]['name'],
-						recipes[0]['ingredients'],
-						recipes[0]['steps'],
-						recipes[0]['categories'],
+						recipe[0]['id'],
+						recipe[0]['name'],
+						recipe[0]['ingredients'],
+						recipe[0]['steps'],
+						recipe[0]['categories'],
 					)
 				);
 			});
@@ -41,11 +41,11 @@ export class RecipesRepository {
 				resolve(
 					recipes.map(recipe => {
 						return new Recipe(
-							recipes[0]['id'],
-							recipes[0]['name'],
-							recipes[0]['ingredients'],
-							recipes[0]['steps'],
-							recipes[0]['categories'],
+							recipe['id'],
+							recipe['name'],
+							recipe['ingredients'],
+							recipe['steps'],
+							recipe['categories'],
 						);
 					})
 				);

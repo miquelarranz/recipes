@@ -1,19 +1,19 @@
 <section class="hero is-info">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        {{ recipe?.name }}
+      <h1 *ngIf="recipeLoaded" class="title">
+        {{ recipe.name }}
       </h1>
     </div>
   </div>
 </section>
-<section class="section">
+<section *ngIf="recipeLoaded" class="section">
   <div class="container">
     <div class="columns">
       <div class="column">
         <h2 class="title">Ingredients</h2>
         <ul>
-          <li *ngFor="let ingredient of recipe?.ingredients">
+          <li *ngFor="let ingredient of recipe.ingredients">
             {{ ingredient }}
           </li>
         </ul>
@@ -21,7 +21,7 @@
       <div class="column">
         <h2 class="title">Steps</h2>
         <ol>
-          <li *ngFor="let step of recipe?.steps">
+          <li *ngFor="let step of recipe.steps">
             {{ step }}
           </li>
         </ol>

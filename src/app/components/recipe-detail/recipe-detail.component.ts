@@ -10,18 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RecipeDetailComponent implements OnInit, OnDestroy {
 	public recipe: Recipe;
+	public recipeLoaded: boolean;
 	public paramsSubscription: any;
 
 	constructor(
 		private recipesRepository: RecipesRepository,
 		private route: ActivatedRoute
 	) {
-
+		this.recipeLoaded = false;
 	}
 
 	ngOnInit() {
 		this.paramsSubscription = this.route.params.subscribe(async params => {
 			this.recipe = await this.recipesRepository.getRecipe(params['id']);
+			this.recipeLoaded = true;
 		});
 	}
 

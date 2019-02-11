@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesRepository } from '../../repositories/recipes.repository';
+import { Recipe } from '../../models/recipe.model';
 
 @Component({
 	selector: 'recipes',
@@ -8,14 +9,16 @@ import { RecipesRepository } from '../../repositories/recipes.repository';
 })
 export class RecipesComponent implements OnInit {
 
-	public recipes: any[];
+	public recipes: Recipe[];
+	public recipesLoaded: boolean;
 
 	constructor(private recipesRepository: RecipesRepository) {
-
+		this.recipesLoaded = false;
 	}
 
 	async ngOnInit() {
 		this.recipes = await this.recipesRepository.getRecipes();
+		this.recipesLoaded = true;
 	}
 
 }
