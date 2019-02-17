@@ -21,14 +21,15 @@ export class RecipesRepository {
 		return new Promise<Recipe>((resolve, reject) => {
 			this.firebase.collection(
 				this.COLLECTION, ref => ref.where('id', '==', id)
-			).valueChanges().subscribe(recipe => {
+			).valueChanges().subscribe(recipes => {
+				const recipe = recipes[0];
 				resolve(
 					new Recipe(
-						recipe[0]['id'],
-						recipe[0]['name'],
-						recipe[0]['ingredients'],
-						recipe[0]['steps'],
-						recipe[0]['categories'],
+						recipe['id'],
+						recipe['name'],
+						recipe['ingredients'],
+						recipe['steps'],
+						recipe['categories'],
 					)
 				);
 			});

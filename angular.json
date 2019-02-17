@@ -30,6 +30,11 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bulma/css/bulma.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/solid.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/regular.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/brands.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/light.css",
             ],
             "scripts": []
           },
@@ -86,7 +91,12 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.scss",
-              "../node_modules/bulma/css/bulma.css",
+              "node_modules/bulma/css/bulma.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/solid.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/regular.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/brands.css",
+              "node_modules/@fortawesome/fontawesome-pro/css/light.css",
             ],
             "scripts": [],
             "assets": [

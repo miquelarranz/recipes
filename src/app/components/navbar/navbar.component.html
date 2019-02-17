@@ -1,7 +1,29 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="">
-      <img src="assets/images/recipes-logo.png" alt="Recipes: stop thinking what to cook today." width="80" height="28">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="assets/images/recipes-logo.png" width="112" height="28">
     </a>
+
+    <a #navbarBurger (click)="toggleMenu()" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarOptions">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div #navbarMenu id="navbarOptions" class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <button class="button is-info">
+          <span class="icon">
+            <i class="fal fa-plus"></i>
+          </span>
+          <span>Nueva receta</span>
+        </button>
+      </div>
+    </div>
   </div>
 </nav>
