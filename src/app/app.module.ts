@@ -10,6 +10,7 @@ import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.component';
 
 @NgModule({
 	declarations: [
@@ -17,7 +18,8 @@ import { environment } from '../environments/environment';
 		RecipesComponent,
 		RecipeComponent,
 		NavbarComponent,
-		RecipeDetailComponent
+		RecipeDetailComponent,
+		RecipeModalComponent
 	],
 	imports: [
 		BrowserModule,

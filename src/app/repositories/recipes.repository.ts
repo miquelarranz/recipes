@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as uuid from 'uuid/v4';
 import { Recipe } from '../models/recipe.model';
-import { recipes } from './recipe.fixture';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
-class Alligator {
-	public name: string;
-
-}
 
 @Injectable({
 	providedIn: 'root',

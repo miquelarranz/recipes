@@ -1,6 +1,6 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="/">
       <img src="assets/images/recipes-logo.png" width="112" height="28">
     </a>
 
@@ -17,7 +17,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <button class="button is-info">
+        <button (click)="openRecipeModal()" class="button is-info">
           <span class="icon">
             <i class="fal fa-plus"></i>
           </span>
@@ -27,3 +27,5 @@
     </div>
   </div>
 </nav>
+
+<recipe-modal></recipe-modal>

@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { RecipeModalService } from '../recipe-modal/recipe-modal.service';
 
 @Component({
 	selector: 'navbar',
@@ -9,9 +10,12 @@ export class NavbarComponent implements OnInit {
 	@ViewChild('navbarBurger') burger: ElementRef;
 	@ViewChild('navbarMenu') menu: ElementRef;
 
-	constructor() { }
+	constructor(private recipeModalService: RecipeModalService) { }
 
-	ngOnInit() {
+	ngOnInit() { }
+
+	public openRecipeModal() {
+		this.recipeModalService.openModal();
 	}
 
 	public toggleMenu() {
