@@ -1,49 +1,76 @@
 import { Injectable } from '@angular/core';
-import * as uuid from 'uuid/v4';
 import { Recipe } from '../models/recipe.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { environment } from '../../environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class RecipesRepository {
-	private COLLECTION = 'recipes'
-	constructor(private firebase: AngularFirestore) { }
+	constructor() { }
 
 	public getRecipe(id: string): Promise<Recipe> {
 		return new Promise<Recipe>((resolve, reject) => {
-			this.firebase.collection(
-				this.COLLECTION, ref => ref.where('id', '==', id)
-			).valueChanges().subscribe(recipes => {
-				const recipe = recipes[0];
-				resolve(
-					new Recipe(
-						recipe['id'],
-						recipe['name'],
-						recipe['ingredients'],
-						recipe['steps'],
-						recipe['categories'],
-					)
-				);
-			});
+			fetch(`${environment.recipesAPI}/recipes/${id}`)
+				.then(function(response) {
+					return response.json();
+				})
+				.then(recipe => {
+					resolve(
+						new Recipe(
+							recipe['_id'],
+							recipe['name'],
+							recipe['ingredients'],
+							recipe['steps'],
+							recipe['categories'],
+						)
+					);
+				});
 		});
 	}
 
 	public getRecipes(): Promise<Recipe[]> {
 		return new Promise<Recipe[]>((resolve, reject) => {
-			this.firebase.collection(this.COLLECTION).valueChanges().subscribe(recipes => {
-				resolve(
-					recipes.map(recipe => {
-						return new Recipe(
-							recipe['id'],
-							recipe['name'],
-							recipe['ingredients'],
-							recipe['steps'],
-							recipe['categories'],
-						);
-					})
-				);
+			fetch(`${environment.recipesAPI}/recipes`)
+				.then(function(response) {
+					return response.json();
+				})
+				.then(recipes => {
+					resolve(
+						recipes.map(recipe => {
+							return new Recipe(
+								recipe['_id'],
+								recipe['name'],
+								recipe['ingredients'],
+								recipe['steps'],
+								recipe['categories'],
+							);
+						})
+					);
+				})
+		})
+	}
+
+	public createRecipe(recipe: Recipe): Promise<Recipe> {
+		return new Promise<Recipe>((resolve, reject) => {
+			fetch(`${environment.recipesAPI}/recipes`, {
+				method: 'POST',
+				body: JSON.stringify(recipe),
+				headers: { 'Content-Type': 'application/json' }
 			})
+				.then(function(response) {
+					return response.json();
+				})
+				.then(id => {
+					resolve(
+						new Recipe(
+							id,
+							recipe.name,
+							recipe.ingredients,
+							recipe.steps,
+							recipe.categories,
+						)
+					);
+				})
 		})
 	}
 }
