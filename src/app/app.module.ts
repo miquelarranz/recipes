@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
@@ -20,7 +21,8 @@ import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.com
 	],
 	imports: [
 		BrowserModule,
-		AppRoutingModule
+		AppRoutingModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
