@@ -47,11 +47,15 @@ export class RecipeModalComponent implements OnInit {
 		)
 
 		await this.recipesRepository.createRecipe(recipe);
-		// Update list
+
 		this.closeModal();
 	}
 
-	closeModal() {
+	closeModal(event?) {
+		if (event) {
+			event.preventDefault();
+		}
+
 		this.recipeModalService.closeModal();
 	}
 
