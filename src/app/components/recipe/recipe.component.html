@@ -10,7 +10,8 @@
     </div>
   </div>
   <figure class="media-right">
-    <span *ngFor="let category of categories" class="tag recipe__category" [style.background-color]="category.color">
-      {{ category.name }}</span>
+    <span *ngFor="let category of recipe.categories" class="tag recipe__category" [style.background-color]="category.color">
+      {{ category.name }}
+    </span>
   </figure>
 </article>

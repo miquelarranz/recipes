@@ -1,11 +1,12 @@
 import { v4 } from 'uuid';
+import { Category } from './category.model';
 
 export class Recipe {
 	public id: string;
 	public name: string;
 	public ingredients: string[];
 	public steps: string[];
-	public categories: string[];
+	public categories: Category[];
 
 	constructor(
 		id?: string,
@@ -18,6 +19,12 @@ export class Recipe {
 		this.name = name;
 		this.ingredients = ingredients;
 		this.steps = steps;
-		this.categories = categories;
+		this.categories = this.prepareCategories(categories);
+	}
+
+	private prepareCategories(categories: string[]) {
+		return categories.map((category) => {
+			return new Category(category);
+		})
 	}
 }

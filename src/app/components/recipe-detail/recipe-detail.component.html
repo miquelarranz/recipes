@@ -1,9 +1,20 @@
-<section class="hero is-info">
+<section class="hero is-info" *ngIf="recipeLoaded">
   <div class="hero-body">
     <div class="container">
       <h1 *ngIf="recipeLoaded" class="title">
         {{ recipe.name }}
       </h1>
+      <nav class="level">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+          <div class="level-item" *ngFor="let category of recipe.categories">
+            <span class="tag recipe-detail__category" [style.background-color]="category.color">
+              {{ category.name }}
+            </span>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
 </section>

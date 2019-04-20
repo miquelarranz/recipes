@@ -1,0 +1,9 @@
+@import '../../../styles.scss';
+
+$root: '.recipe-detail';
+
+#{$root} {
+    &__category {
+        color: white;
+    }
+}

@@ -13,12 +13,6 @@ export class RecipeComponent implements OnInit {
 	public categories: Category[];
 
 	ngOnInit() {
-		this.categories = this.prepareCategories(this.recipe.categories);
-	}
 
-	private prepareCategories(categories: string[]) {
-		return categories.map((category) => {
-			return new Category(category);
-		})
 	}
 }
