@@ -1,18 +1,30 @@
 <section class="hero is-info" *ngIf="recipeLoaded">
   <div class="hero-body">
     <div class="container">
-      <h1 *ngIf="recipeLoaded" class="title">
-        {{ recipe.name }}
-      </h1>
       <nav class="level">
         <div class="level-left">
+          <h1 *ngIf="recipeLoaded" class="title">
+            {{ recipe.name }}
+          </h1>
         </div>
         <div class="level-right">
+          <button (click)="deleteRecipe()" class="button is-danger is-rounded is-small is-inverted is-outlined">
+            <span class="icon">
+              <i class="fal fa-times"></i>
+            </span>
+            <span>Borrar receta</span>
+          </button>
+        </div>
+      </nav>
+      <nav class="level">
+        <div class="level-left">
           <div class="level-item" *ngFor="let category of recipe.categories">
-            <span class="tag recipe-detail__category" [style.background-color]="category.color">
+            <span class="tag recipe-detail__category" [style.color]="category.color" [style.border-color]="category.color">
               {{ category.name }}
             </span>
           </div>
+        </div>
+        <div class="level-right">
         </div>
       </nav>
     </div>
@@ -38,6 +50,5 @@
         </ol>
       </div>
     </div>
-
   </div>
 </section>

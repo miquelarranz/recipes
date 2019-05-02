@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesRepository } from 'src/app/repositories/recipes.repository';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-recipe-detail',
@@ -15,7 +15,8 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private recipesRepository: RecipesRepository,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private router: Router
 	) {
 		this.recipeLoaded = false;
 	}
@@ -29,6 +30,12 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.paramsSubscription.unsubscribe();
+	}
+
+	public deleteRecipe() {
+		this.recipesRepository.deleteRecipe(this.recipe.id).then(() => {
+			this.router.navigate(['/']);
+		});
 	}
 
 }
